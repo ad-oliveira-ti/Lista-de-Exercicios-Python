@@ -1,0 +1,63 @@
+Link de aula de como executar herança, associação, composição e agregação em Python:
+
+https://youtu.be/u3ZZVN3yWDo
+
+##############################
+##############################
+##############################
+
+@startuml heranca_associacao
+
+title Diagrama de Classes
+
+class PessoaFisica{
+    - cpf: String
+    - data_nascimento: Date 
+    - pessoa: Pessoa
+    + construtor(cpf, data_nascimento, pessoa)
+}
+
+class PessoaJuridica{
+    - cnpf: String
+    - ano_fundacao: Int
+    - pessoa: Pessoa
+    + construtor(cnpj, ano_fundacao, pessoa)
+}
+
+class Pessoa{
+    - nome: String 
+    - endereco: String
+    + construtor(nome, endereco)
+}
+
+class Agencia{
+    - numero_ag: Int
+    - telefone: String
+    - endereco: String
+    + construtor(numero_ag, telefone, endereco)
+}
+
+class Categoria{
+    - descricao: String
+    - limite: Float
+    - tipo: String
+    + construtor(descricao, limite, tipo)
+}
+
+class ContaCorrente{
+    - numero_cc: Int
+    - saldo: Float
+    - pessoa: Pessoa
+    - agencia: Agencia
+    - categoria: Categoria
+    + construtor(numero_cc, saldo, pessoa, agencia, categoria)
+}
+
+Pessoa <|-- PessoaFisica
+Pessoa <|-- PessoaJuridica
+ContaCorrente o-- Pessoa  
+ContaCorrente o-- Agencia
+ContaCorrente o-- Categoria 
+
+@enduml
+
