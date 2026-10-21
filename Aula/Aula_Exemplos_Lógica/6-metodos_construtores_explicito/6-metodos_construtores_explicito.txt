@@ -1,0 +1,33 @@
+################################
+#### CONSTRUTORES DECLARADOS ###
+################################
+
+# Criar metodos com os nomes dos atributos privados
+# adicionar antes do metodo get o "@property" e
+# antes do mentdo set @nome_atributo.setter
+
+class Pessoa():
+    
+    def __init__(self, nome, endereco):
+        self._nome = nome 
+        self._endereco = endereco 
+
+    # Adicionado o @property
+    @property
+    def nome(self):
+        print("teste nome pelo metodo")
+        return self._nome
+    # Adicionado o atributo set @nome_atributo.setter
+    @nome.setter
+    def nome(self, nome):
+        self._nome = nome
+
+    @property
+    def endereco(self):
+        print("teste nome pelo metodo")
+        return self._endereco
+    
+    @endereco.setter
+    def endereco(self, endereco):
+        self._endereco = endereco
+

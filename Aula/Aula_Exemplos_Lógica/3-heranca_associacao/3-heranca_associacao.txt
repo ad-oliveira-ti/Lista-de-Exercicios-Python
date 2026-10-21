@@ -1,0 +1,124 @@
+
+
+############################
+#### HERANCA ASSOCIACAO ####
+############################
+
+# Criar arquivo pessoa.py com a classe Pessoa
+
+class Pessoa
+
+    def __init__(self, nome, idade)
+        # O _ antes do atributo transforma atributo em Private
+        self._nome = nome 
+        self._idade = idade
+
+# Executando os atributos.
+# Sempre entrar e sair para zerar os imports do temrinal.
+
+from pessoa import Pessoa
+
+pessoa1 = Pessoa('Antonio Leaes',130)
+
+pessoa1._nome
+
+
+# Criar arquivo pessoa_fisica.py com a classe PessoaFisica
+
+from pessoa import Pessoa
+
+class PessoaFisica(Pessoa)
+
+    def __init__(self, nome, idade, cpf)
+        # Inicializador de referencia do construtor da classe pai
+        super().__init__(nome,  idade)
+        self._cpf = cpf
+
+    def validar_cpf(cpf=None)
+        if cpf is not None
+            return True
+        else
+            return False
+
+# Executando os atributos.
+# Sempre entrar e sair para zerar os imports do temrinal.
+
+from pessoa_fisica import PessoaFisica
+
+pessoa1 = PessoaFisica('Antonio Leaes', 76, 9999999999)
+
+pessoa1._cpf
+
+pessoa1.validar_cpf()
+
+# Criar arquivo pessoa_juridica.py com a classe PessoaJuridica
+
+from pessoa import Pessoa
+
+class PossoaJuridica(Pessoa)
+
+    def __init__(self, cnpj)
+        self._cnpj = cnpf
+
+    def validar_cnpj(cnpj=None)
+        if cnpj is not None
+            return True
+        else
+            return False
+
+
+# Executando os atributos.
+# Sempre entrar e sair para zerar os imports do temrinal.
+
+from pessoa_juridica import PessoaJuridica
+
+pessoa1 = PessoaJuridica(32131234343423)
+
+pessoa1._cnpf
+
+pessoa1.validar_cnpj()
+
+
+
+
+#####################################
+#### DIAGRAMA HERANCA ASSOCIACAO ####
+#####################################
+
+Acesso o Link
+
+httpswww.plantuml.complantumluml
+
+Copie e cole o código a seguir para visualizar e editar o diagrama de classes
+
+@startuml heranca_associacao
+
+title Diagrama de Classes
+
+class Pessoa{
+    - nomeString 
+    - endereco String
+    + construtor(nome, endereco)
+}
+
+class PessoaFisica{
+    - cpfString
+    - data Date 
+    + construtor(pessoa, cpf, data)
+    + validar_cpf(cpf)
+}
+
+class PessoaJuridica{
+    - cnpf String
+    + construtor(pessoa, cnpj)
+    + validar_cnpj(cnpj)
+}
+
+Pessoa -- PessoaFisica
+Pessoa -- PessoaJuridica
+
+@enduml
+
+
+
+
